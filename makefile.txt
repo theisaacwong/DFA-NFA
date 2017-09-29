@@ -1,0 +1,17 @@
+CC=gcc
+CFLAGS=
+SOURCES=auto.c
+OBJECTS=$(SOURCES: .c=.o)
+EXECUTABLE=test
+
+all: $(EXECUTABLE)
+	./$(EXECUTABLE)
+	
+$(EXECUTABLE): $(OBJECTS) 
+	$(CC) $(OBJECTS) -o $(EXECUTABLE)
+
+auto.o: auto.c
+	$(CC) $(CFLAGS) auto.c
+
+clean: 
+	rm  $(EXECUTABLE)
